@@ -7,8 +7,7 @@ import { TaskPage } from "./components/Pages/task";
 import { UpgradePage } from "./components/Pages/upgrade";
 import SplashPage from "./SplashPage"; // Import the SplashPage component
 
-const TELEGRAM_BOT_TOKEN = '7120576382:AAGsW4orzPqYd8uTPcfETLh67-_3PChTA-A'; // Update with your Telegram bot token
-const TELEGRAM_CHAT_ID = '7120576382'; // Update with your Telegram chat ID where you want to store the data
+const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'; // Update with your Telegram bot token
 
 const App = () => {
   const [count, setCount] = useState<number>(0);
@@ -60,37 +59,19 @@ const App = () => {
 
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
-
-      // Store user data in Telegram chat
-      saveDataToTelegram();
     }
   }, []);
 
-  useEffect(() => {
-    if (telegramUser) {
-      saveDataToTelegram();
-    }
-  }, [count, currentPower]);
-
   const saveDataToTelegram = async () => {
     try {
-      const ipAddress = 'user_ip_address'; // Replace with actual user IP address
-      const data = {
-        uid: telegramUser?.uid,
-        username: telegramUser?.username,
-        ipAddress,
-        count,
-        currentPower,
-      };
-
       const res = await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        chat_id: TELEGRAM_CHAT_ID,
-        text: `User Data:\nUID: ${data.uid}\nUsername: ${data.username}\nIP Address: ${data.ipAddress}\nCount: ${data.count}\nCurrent Power: ${data.currentPower}`
+        chat_id: 'your_chat_id', // Replace with your chat ID where you want to store the data
+        text: `Count: ${count}, Current Power: ${currentPower}` // Example data to save
       });
 
-      console.log('Data saved to Telegram chat:', res.data);
+      console.log('Data saved to Telegram bot:', res.data);
     } catch (error) {
-      console.error('Error saving data to Telegram chat:', error);
+      console.error('Error saving data to Telegram bot:', error);
     }
   };
 
@@ -121,7 +102,7 @@ const App = () => {
   }
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 1000, width: '100%', height: '100%' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 2, width: '100%', height: '100%' }}>
       <Routes>
         <Route index element={<IndexPage
           click={click}
