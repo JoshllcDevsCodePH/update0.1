@@ -53,8 +53,8 @@ const App = () => {
       const { id, username } = window.Telegram.WebApp.initDataUnsafe.user;
       setTelegramUser({ uid: id, username: username });
 
-      // Generate random avatar URL based on username
-      const avatar = `https://avatars.dicebear.com/api/initials/${username}.svg`;
+      // Use specific DiceBear avatar URL
+      const avatar = `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(username)}`;
       setAvatarUrl(avatar);
 
       console.log("Telegram User ID:", id);
@@ -93,14 +93,14 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       {telegramUser && (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src={avatarUrl} alt="Avatar" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
+        <>
+          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
           <div style={{ color: 'white', zIndex: 1000 }}>
             Welcome, {telegramUser.username}!
           </div>
-        </div>
+        </>
       )}
       <Routes>
         <Route index element={<IndexPage
