@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import axios from 'axios';
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
@@ -102,11 +102,11 @@ const App = () => {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 1000 }}>
       {telegramUser && (
         <>
           <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
-          <div style={{ color: 'white', zIndex: 1000 }}>
+          <div style={{ color: 'white' }}>
             Welcome, {telegramUser.username}!
           </div>
         </>
