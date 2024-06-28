@@ -92,11 +92,13 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       {telegramUser && (
-        <div style={{ position: 'absolute', top: '10px', left: '10px', color: 'white', zIndex: 1000 }}>
-          <img src={telegramUser.profilePhoto} alt="Telegram Profile" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
-          Welcome, {telegramUser.username}!
+        <div style={{ position: 'absolute', top: '10px', left: '10px', display: 'flex', alignItems: 'center', color: 'white', zIndex: 1000 }}>
+          {telegramUser.profilePhoto && (
+            <img src={telegramUser.profilePhoto} alt="Telegram Profile" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
+          )}
+          <span>Welcome, {telegramUser.username}!</span>
         </div>
       )}
       <Routes>
