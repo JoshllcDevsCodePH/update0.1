@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Clicker } from "../Clicker";
 import { Footer } from "../Footer";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 export type IndexPageProps = {
   count: number;
@@ -22,12 +22,8 @@ export const IndexPage: FC<IndexPageProps> = ({
   click,
   maxPower,
   progress,
-  saveDataToTelegram,
+  saveDataToTelegram // Dito walang default value
 }) => {
-  useEffect(() => {
-    saveDataToTelegram();
-  }, [count, currentPower]);
-
   return (
     <Box
       sx={{
@@ -54,7 +50,7 @@ export const IndexPage: FC<IndexPageProps> = ({
           backgroundRepeat: "no-repeat",
           transform: "scale(1.1)",
           filter: "blur(8px)",
-          "-webkit-filter": "blur(8px)",
+          "-webkit-filter": " blur(8px)",
           "&:before": {
             content: '""',
             position: "absolute",
