@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import axios from 'axios';
 import { IndexPage } from "./components/Pages";
 import { BoostsPage } from "./components/Pages/boosts";
@@ -92,15 +92,24 @@ const App = () => {
     return <SplashPage />;
   }
 
+  // Check if the device is not mobile (assuming tablet and desktop have a width > 768px)
+  if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+        <p style={{ fontSize: '24px', textAlign: 'center' }}>This app is for mobile devices only.</p>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       {telegramUser && (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src={avatarUrl} alt="Avatar" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
+        <>
+          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
           <div style={{ color: 'white', zIndex: 1000 }}>
             Welcome, {telegramUser.username}!
           </div>
-        </div>
+        </>
       )}
       <Routes>
         <Route index element={<IndexPage
