@@ -92,19 +92,12 @@ const App = () => {
     return <SplashPage />;
   }
 
-  // Check if the device is not mobile (assuming tablet and desktop have a width > 768px)
-  if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-        <p style={{ fontSize: '24px', textAlign: 'center' }}>This app is for mobile devices only.</p>
-      </div>
-    );
-  }
+
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 0, width: '100%', height: '100%', overflowY: 'hidden' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 0, width: '100%', height: '100%', overflowY: 'auto' }}>
       {telegramUser && (
-        <div style={{ position: 'absolute', top: 0, left: 0, display: 'flex', alignItems: 'center', padding: '10px', background: 'transparent', overflowY: 'hidden', zIndex: 0 }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, display: 'flex', alignItems: 'center', padding: '10px', background: 'transparent', zIndex: 1 }}>
           <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
           <span style={{ fontWeight: 600, color: 'white' }}>{telegramUser.username}</span>
         </div>
