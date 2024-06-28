@@ -1,5 +1,3 @@
-// App.tsx
-
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from 'axios';
@@ -19,7 +17,11 @@ const App = () => {
   const [currentPower, setCurrentPower] = useState<number>(0);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const [telegramUser, setTelegramUser] = useState<{ uid: number, username: string } | null>(null);
+  const [telegramUser, setTelegramUser] = useState<{
+    uid: number;
+    username: string;
+    profilePhoto?: string;
+  } | null>(null);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 8000); // Simulate loading
@@ -49,12 +51,13 @@ const App = () => {
     // Initialize Telegram Web App
     window.Telegram.WebApp.ready();
 
-    // Fetch the user's Telegram UID and username
+    // Fetch the user's Telegram UID, username, and profile photo URL
     if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
-      const { id, username } = window.Telegram.WebApp.initDataUnsafe.user;
-      setTelegramUser({ uid: id, username: username });
+      const { id, username, photo_url } = window.Telegram.WebApp.initDataUnsafe.user;
+      setTelegramUser({ uid: id, username: username, profilePhoto: photo_url });
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
+      console.log("Telegram Profile Photo URL:", photo_url);
     }
   }, []);
 
@@ -92,6 +95,7 @@ const App = () => {
     <div>
       {telegramUser && (
         <div style={{ position: 'absolute', top: '10px', left: '10px', color: 'white', zIndex: 1000 }}>
+          <img src={telegramUser.profilePhoto} alt="Telegram Profile" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
           Welcome, {telegramUser.username}!
         </div>
       )}
