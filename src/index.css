@@ -52,9 +52,11 @@ code {
 }
 
 .telegram-username {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
   margin-top: 20px;
-  font-size: 16px;
-  color: black; /* Adjust color based on your design */
+  text-align: center;
 }
 
 
