@@ -6,8 +6,14 @@ import { BoostsPage } from "./components/Pages/boosts";
 import { TaskPage } from "./components/Pages/task";
 import { UpgradePage } from "./components/Pages/upgrade";
 import SplashPage from "./SplashPage"; // Import the SplashPage component
+import { createClient } from '@supabase/supabase-js';
 
 const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'; // Update with your Telegram bot token
+
+// Initialize Supabase client (replace with your Supabase project details)
+const supabaseUrl = 'https://yexwhizenrrpixcqomlz.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlleHdoaXplbnJycGl4Y3FvbWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0Mjc5MTAsImV4cCI6MjAzNTAwMzkxMH0.S37kYpnANk0mkOwvvD0x0kvp_BSg_vD1RtIVRuY4hUE';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const App = () => {
   const [count, setCount] = useState<number>(0);
@@ -59,6 +65,16 @@ const App = () => {
 
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
+
+      // Store user data in Supabase
+      const ipAddress = 'user_ip_address'; // Replace with actual user IP address
+      const userData = { uid: id, username: username, ipAddress: ipAddress };
+
+      // Example of storing user data in Supabase
+      supabase
+        .from('users')
+        .insert(userData)
+        .then(response => console.log('User data stored in Supabase:', response));
     }
   }, []);
 
@@ -103,12 +119,6 @@ const App = () => {
 
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 1000, width: '100%', height: '100%' }}>
-      {telegramUser && (
-        <div style={{ position: 'fixed', top: 0, left: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px', zIndex: 1000 }} />
-          Welcome, {telegramUser.username}!
-        </div>
-      )}
       <Routes>
         <Route index element={<IndexPage
           click={click}
