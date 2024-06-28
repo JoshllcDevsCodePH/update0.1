@@ -8,7 +8,13 @@ declare global {
 }
 
 const SplashPage = () => {
-  const [telegramUser, setTelegramUser] = useState<{ uid: number, username: string } | null>(null);
+  const [telegramUser, setTelegramUser] = useState<{
+    uid: number;
+    username: string;
+    firstName?: string;
+    lastName?: string;
+    profilePhoto?: string;
+  } | null>(null);
 
   useEffect(() => {
     // Initialize Telegram Web App
@@ -16,8 +22,14 @@ const SplashPage = () => {
 
     // Fetch the user's Telegram UID and username
     if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
-      const { id, username } = window.Telegram.WebApp.initDataUnsafe.user;
-      setTelegramUser({ uid: id, username: username });
+      const { id, username, first_name, last_name, photo_url } = window.Telegram.WebApp.initDataUnsafe.user;
+      setTelegramUser({
+        uid: id,
+        username: username,
+        firstName: first_name,
+        lastName: last_name,
+        profilePhoto: photo_url,
+      });
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
     }
@@ -47,7 +59,12 @@ const SplashPage = () => {
       <div className="loader"></div>
       {telegramUser && (
         <div className="telegram-username">
-          Welcome, {telegramUser.username}!
+          <p>Welcome, {telegramUser.username}!</p>
+          {telegramUser.firstName && <p>First Name: {telegramUser.firstName}</p>}
+          {telegramUser.lastName && <p>Last Name: {telegramUser.lastName}</p>}
+          {telegramUser.profilePhoto && (
+            <img src={telegramUser.profilePhoto} alt="Telegram Profile" style={{ width: "100px", height: "100px", borderRadius: "50%" }} />
+          )}
         </div>
       )}
     </div>
