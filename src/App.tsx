@@ -17,11 +17,8 @@ const App = () => {
   const [currentPower, setCurrentPower] = useState<number>(0);
   const [isIncreasing, setIsIncreasing] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const [telegramUser, setTelegramUser] = useState<{
-    uid: number;
-    username: string;
-    profilePhoto?: string;
-  } | null>(null);
+  const [telegramUser, setTelegramUser] = useState<{ uid: number, username: string } | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string>("");
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 8000); // Simulate loading
@@ -51,13 +48,17 @@ const App = () => {
     // Initialize Telegram Web App
     window.Telegram.WebApp.ready();
 
-    // Fetch the user's Telegram UID, username, and profile photo URL
+    // Fetch the user's Telegram UID and username
     if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
-      const { id, username, photo_url } = window.Telegram.WebApp.initDataUnsafe.user;
-      setTelegramUser({ uid: id, username: username, profilePhoto: photo_url });
+      const { id, username } = window.Telegram.WebApp.initDataUnsafe.user;
+      setTelegramUser({ uid: id, username: username });
+
+      // Generate random avatar URL based on username
+      const avatar = `https://avatars.dicebear.com/api/initials/${username}.svg`;
+      setAvatarUrl(avatar);
+
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
-      console.log("Telegram Profile Photo URL:", photo_url);
     }
   }, []);
 
@@ -92,13 +93,13 @@ const App = () => {
   }
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div>
       {telegramUser && (
-        <div style={{ position: 'absolute', top: '10px', left: '10px', display: 'flex', alignItems: 'center', color: 'white', zIndex: 1000 }}>
-          {telegramUser.profilePhoto && (
-            <img src={telegramUser.profilePhoto} alt="Telegram Profile" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
-          )}
-          <span>Welcome, {telegramUser.username}!</span>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={avatarUrl} alt="Avatar" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
+          <div style={{ color: 'white', zIndex: 1000 }}>
+            Welcome, {telegramUser.username}!
+          </div>
         </div>
       )}
       <Routes>
