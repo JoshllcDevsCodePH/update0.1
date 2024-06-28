@@ -92,6 +92,15 @@ const App = () => {
     return <SplashPage />;
   }
 
+    // Check if the device is not mobile (assuming tablet and desktop have a width > 768px)
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      return (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+          <p style={{ fontSize: '24px', textAlign: 'center' }}>This app is for mobile devices only.</p>
+        </div>
+      );
+    }
+
 
 
   return (
