@@ -6,14 +6,9 @@ import { BoostsPage } from "./components/Pages/boosts";
 import { TaskPage } from "./components/Pages/task";
 import { UpgradePage } from "./components/Pages/upgrade";
 import SplashPage from "./SplashPage"; // Import the SplashPage component
-import { createClient } from '@supabase/supabase-js';
 
-const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'; // Update with your Telegram bot token
-
-// Initialize Supabase client (replace with your Supabase project details)
-const supabaseUrl = 'https://yexwhizenrrpixcqomlz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlleHdoaXplbnJycGl4Y3FvbWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0Mjc5MTAsImV4cCI6MjAzNTAwMzkxMH0.S37kYpnANk0mkOwvvD0x0kvp_BSg_vD1RtIVRuY4hUE';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const TELEGRAM_BOT_TOKEN = '7120576382:AAGsW4orzPqYd8uTPcfETLh67-_3PChTA-A'; // Update with your Telegram bot token
+const TELEGRAM_CHAT_ID = '7120576382'; // Update with your Telegram chat ID where you want to store the data
 
 const App = () => {
   const [count, setCount] = useState<number>(0);
@@ -66,28 +61,36 @@ const App = () => {
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
 
-      // Store user data in Supabase
-      const ipAddress = 'user_ip_address'; // Replace with actual user IP address
-      const userData = { uid: id, username: username, ipAddress: ipAddress };
-
-      // Example of storing user data in Supabase
-      supabase
-        .from('users')
-        .insert(userData)
-        .then(response => console.log('User data stored in Supabase:', response));
+      // Store user data in Telegram chat
+      saveDataToTelegram();
     }
   }, []);
 
+  useEffect(() => {
+    if (telegramUser) {
+      saveDataToTelegram();
+    }
+  }, [count, currentPower]);
+
   const saveDataToTelegram = async () => {
     try {
+      const ipAddress = 'user_ip_address'; // Replace with actual user IP address
+      const data = {
+        uid: telegramUser?.uid,
+        username: telegramUser?.username,
+        ipAddress,
+        count,
+        currentPower,
+      };
+
       const res = await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        chat_id: 'your_chat_id', // Replace with your chat ID where you want to store the data
-        text: `Count: ${count}, Current Power: ${currentPower}` // Example data to save
+        chat_id: TELEGRAM_CHAT_ID,
+        text: `User Data:\nUID: ${data.uid}\nUsername: ${data.username}\nIP Address: ${data.ipAddress}\nCount: ${data.count}\nCurrent Power: ${data.currentPower}`
       });
 
-      console.log('Data saved to Telegram bot:', res.data);
+      console.log('Data saved to Telegram chat:', res.data);
     } catch (error) {
-      console.error('Error saving data to Telegram bot:', error);
+      console.error('Error saving data to Telegram chat:', error);
     }
   };
 
