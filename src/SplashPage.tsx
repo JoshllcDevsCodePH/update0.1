@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import './index.css'; // Import the CSS file with animations
 
 declare global {
@@ -8,8 +8,6 @@ declare global {
 }
 
 const SplashPage = () => {
-  const [telegramUser, setTelegramUser] = useState<{ uid: number, username: string } | null>(null);
-
   useEffect(() => {
     // Initialize Telegram Web App
     window.Telegram.WebApp.ready();
@@ -17,7 +15,6 @@ const SplashPage = () => {
     // Fetch the user's Telegram UID and username
     if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
       const { id, username } = window.Telegram.WebApp.initDataUnsafe.user;
-      setTelegramUser({ uid: id, username: username });
       console.log("Telegram User ID:", id);
       console.log("Telegram Username:", username);
     }
@@ -42,14 +39,9 @@ const SplashPage = () => {
   return (
     <div className="splash-container">
       <div className="logo-wrapper">
-        <img src="/path/to/facebook-logo.png" alt="Hello" className="logo" />
+        <img src="/logo.png" alt="Hello" className="logo" style={{ width: '80px', height: '80px' }} />
       </div>
       <div className="loader"></div>
-      {telegramUser && (
-        <div className="telegram-username">
-          Welcome, {telegramUser.username}!
-        </div>
-      )}
     </div>
   );
 };
