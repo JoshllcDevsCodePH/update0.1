@@ -102,11 +102,11 @@ const App = () => {
   }
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, background: 'red', zIndex: 2, width: '100%', height: '100%', overflowY: 'auto' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 1, width: '100%', height: '100%', overflowY: 'auto' }}>
       {telegramUser && (
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', padding: '10px', background: '#f0f0f0', zIndex: 2 }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', padding: '10px', background: 'transparent', zIndex: 1 }}>
           <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
-          <span>{telegramUser.username}</span>
+          <span style={{ marginTop: '5px', fontWeight: 600, color: 'white' }}>{telegramUser.username}</span>
         </div>
       )}
       <Routes>
