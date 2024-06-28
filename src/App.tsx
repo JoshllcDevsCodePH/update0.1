@@ -93,14 +93,14 @@ const App = () => {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div>
       {telegramUser && (
-        <>
-          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={avatarUrl} alt="Avatar" style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '10px' }} />
           <div style={{ color: 'white', zIndex: 1000 }}>
             Welcome, {telegramUser.username}!
           </div>
-        </>
+        </div>
       )}
       <Routes>
         <Route index element={<IndexPage
