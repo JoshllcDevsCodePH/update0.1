@@ -104,8 +104,8 @@ const App = () => {
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, background: 'transparent', zIndex: 1000, width: '100%', height: '100%' }}>
       {telegramUser && (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
+        <div style={{ position: 'fixed', top: 0, left: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+          <img src={avatarUrl} alt="Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px', zIndex: 1000 }} />
           Welcome, {telegramUser.username}!
         </div>
       )}
