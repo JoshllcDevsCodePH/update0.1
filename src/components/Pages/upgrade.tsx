@@ -73,87 +73,87 @@ export const UpgradePage: FC<UpgradePageProps> = ({ count }) => {
           setUpgrades([
             {
               name: "Emilio Aguinaldo",
-              cost: "170,000",
+              cost: "🪙170,000",
               image: "https://i.pinimg.com/236x/d1/38/d1/d138d1f29aff772151462774bc90a3d1--president-of-the-philippines-american-war.jpg"
             },
             {
               name: "Manuel L. Quezon",
-              cost: "75,000",
+              cost: "🪙75,000",
               image: "https://www.onthisday.com/images/people/manuel-quezon-medium.jpg"
             },
             {
               name: "Jose P. Laurel",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "https://3.bp.blogspot.com/-aQrhWe9o-nc/TpuLrKd19hI/AAAAAAAAAaA/1mI-AVQdG-A/s1600/Jose%2BP%2BLaurel.jpg"
             },
             {
               name: "Sergio Osmeña",
-              cost: "340,000",
-              image: "http://pm1.narvii.com/7583/b254ec08bb7ae92129ca3054685279a78e868993r1-364-512v2_uhq.jpg"
+              cost: "🪙340,000",
+              image: "https://cdn.britannica.com/67/135467-050-70CAF898/Sergio-Osmena.jpg"
             },
             {
               name: "Manuel A. Roxas",
-              cost: "600,000",
+              cost: "🪙600,000",
               image: "https://philippinespres.weebly.com/uploads/6/3/8/1/6381749/6669974.jpg"
             },
             {
               name: "Elpidio Quirino",
-              cost: "400,000",
+              cost: "🪙400,000",
               image: "https://3.bp.blogspot.com/-qoABbIG4GsU/WYTROk1cvbI/AAAAAAAAK4w/2kOk9Ukz8pIm1GEE_mYbGzib0EdD7TtKwCLcBGAs/s1600/Talambuhay%2Bni%2BElpidio%2BQuirino.jpg"
             },
             {
               name: "Ramon Magsaysay",
-              cost: "650,000",
+              cost: "🪙650,000",
               image: "https://i0.wp.com/www.tagaloglang.com/ux/wp-content/uploads/2016/07/President_Magsaysay_portrait_barong_tagalog.jpg?w=960&ssl=1"
             },
             {
               name: "Carlos P. Garcia",
-              cost: "350,000",
+              cost: "🪙350,000",
               image: "https://live.staticflickr.com/2602/3839768568_c6c947dbbd_z.jpg"
             },
             {
               name: "Diosdado Macapagal",
-              cost: "400,000",
+              cost: "🪙400,000",
               image: "https://farm3.staticflickr.com/2626/3838938345_d42d0145c0_z.jpg"
             },
             {
               name: "Ferdinand Marcos",
-              cost: "700,000",
+              cost: "🪙700,000",
               image: "https://1.bp.blogspot.com/-ixLnaLlBRow/WGRIVOPMzBI/AAAAAAAAAA4/LJQOYtKPkYkkCAQ2VBCkBxPlRJXnhouNQCLcB/s1600/Marcos-w960.jpg"
             },
             {
               name: "Corazon Aquino",
-              cost: "40,000",
+              cost: "🪙40,000",
               image: "https://ca-times.brightspotcdn.com/dims4/default/33474ba/2147483647/strip/true/crop/300x419+0+0/resize/840x1173!/quality/90/?url=https:%2F%2Fca-times.brightspotcdn.com%2F98%2Fd6%2Ff94e5f46d8c4aece457eb75e86dc%2Fla-corazon-aquino2008-km3mcbnc-span"
             },
             {
               name: "Fidel V. Ramos",
-              cost: "75,000",
+              cost: "🪙75,000",
               image: "https://cdn.britannica.com/21/123121-004-624D3E93/Fidel-Ramos.jpg"
             },
             {
               name: "Joseph Estrada",
-              cost: "60,000",
-              image: "http://philippineculturaleducation.com.ph/wp-content/uploads/2017/10/sk-estrada-joseph.jpg"
+              cost: "🪙60,000",
+              image: "https://tse4.mm.bing.net/th?id=OIP.JK3Mg-DjY54BvVwq1qyDGgHaJr&pid=Api&P=0&h=220"
             },
             {
               name: "Gloria Macapagal Arroyo",
-              cost: "75,000",
+              cost: "🪙75,000",
               image: "https://www.onthisday.com/images/people/gloria-macapagal-arroyo-200.jpg"
             },
             {
               name: "Benigno Aquino III",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "https://cdn.britannica.com/25/161725-050-F00F2842/Philippine-President-Benigno-S-Aquino-III.jpg"
             },
             {
               name: "Rodrigo Duterte",
-              cost: "450,000",
+              cost: "🪙450,000",
               image: "https://images.saymedia-content.com/.image/t_share/MTg3ODMwOTUwNTk0ODE1MDI3/the-three-greatest-achievements-of-the-duterte-administration.jpg"
             },
             {
               name: "Ferdinand Marcos Jr.",
-              cost: "500,000",
+              cost: "🪙500,000",
               image: "https://eliveclass.com/wp-content/uploads/2022/06/Ferdinand-Marcos-Jr-600x600.jpg"
             }   
           ]);
@@ -162,97 +162,97 @@ export const UpgradePage: FC<UpgradePageProps> = ({ count }) => {
           setUpgrades([
             {
               name: "Kurimaw",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "/kurimaw.jpg"
             },
             {
               name: "Aswang",
-              cost: "60,000",
+              cost: "🪙60,000",
               image: "http://4.bp.blogspot.com/-rYab7b2PXbA/UyaqiXAjeVI/AAAAAAAAAqQ/-Ad8VmOL3S4/s1600/aswang1.JPG"
             },
             {
               name: "Manananggal",
-              cost: "70,000",
+              cost: "🪙70,000",
               image: "https://mythosaurus.com/wp-content/uploads/2023/07/During-the-day-the-Manananggal-appears-as-an-ordinary-human.-1.png"
             },
             {
               name: "Tiktik",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "https://i.pinimg.com/originals/ae/f0/31/aef031d9b26022da49701d966f90cc0b.jpg"
             },
             {
               name: "Kapre",
-              cost: "80,000",
+              cost: "🪙80,000",
               image: "https://mythlok.com/wp-content/uploads/2023/07/Mythlok-Kapre-AI_.jpg"
             },
             {
               name: "Tikbalang",
-              cost: "90,000",
+              cost: "🪙90,000",
               image: "https://mythicalcreatures.blog/wp-content/uploads/2023/11/Tikbalang-werehorse-of-Philippine-folklore.jpg"
             },
             {
               name: "Diwata",
-              cost: "100,000",
+              cost: "🪙100,000",
               image: "https://i.pinimg.com/originals/24/91/4a/24914a1248e3d4e79ea33ecdca9657f1.jpg"
             },
             {
               name: "Nuno sa Punso",
-              cost: "40,000",
+              cost: "🪙40,000",
               image: "https://cdna.artstation.com/p/assets/images/images/004/025/826/large/clarita-joy-cailan-clarita-cailan-nuno2rgb.jpg?1479593351"
             },
             {
               name: "Tiyanak",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "https://www.monstropedia.org/images/6/67/Tiyanak-vampire.jpg"
             },
             {
               name: "Sigbin",
-              cost: "60,000",
+              cost: "🪙60,000",
               image: "https://i.pinimg.com/736x/2b/21/eb/2b21ebafd3c7b776bcf1802f6dd72f60--philippine-mythology-mythical-creatures.jpg"
             },
             {
               name: "Bungisngis",
-              cost: "70,000",
+              cost: "🪙70,000",
               image: "https://i.pinimg.com/originals/eb/ce/31/ebce316319e0f258be0276b14a42c0e9.jpg"
             },
             {
               name: "Santelmo",
-              cost: "80,000",
+              cost: "🪙80,000",
               image: "https://images.puertoparrot.com/articles/original/3_1601090353_d2b5c.png"
             },
             {
               name: "Berberoka",
-              cost: "90,000",
-              image: "http://mythicalcreatures.info/media/Berberoka-2.jpg"
+              cost: "v90,000",
+              image: "https://images.nightcafe.studio/jobs/SDjb2lqcf7oLDOK6IYKf/SDjb2lqcf7oLDOK6IYKf--1--4hbzx.jpg?tr=w-1600,c-at_max"
             },
             {
               name: "Bakunawa",
-              cost: "100,000",
+              cost: "🪙100,000",
               image: "https://cdna.artstation.com/p/assets/images/images/008/674/932/large/allen-michael-geneta-bakunawa01.jpg?1514477712"
             },
             {
               name: "Kataw",
-              cost: "110,000",
+              cost: "🪙110,000",
               image: "https://orig00.deviantart.net/4c9a/f/2009/050/7/c/ugkoy_by_isaiahpaul.jpg"
             },
             {
               name: "Sirena",
-              cost: "120,000",
+              cost: "🪙120,000",
               image: "https://orig00.deviantart.net/bb81/f/2007/030/f/9/sireno_by_blue_fusion.jpg"
             },
             {
               name: "Duwende",
-              cost: "50,000",
+              cost: "🪙50,000",
               image: "https://cdnb.artstation.com/p/assets/images/images/054/800/721/large/ronald-gavin-castillo-duwende.jpg?1665414849"
             },
             {
               name: "Batibat",
-              cost: "60,000",
+              cost: "🪙60,000",
               image: "https://cdna.artstation.com/p/assets/images/images/031/971/106/large/carlo-spagnola-batibat.jpg?1605112039"
             },
             {
               name: "Amomongo",
-              cost: "70,000",
+              cost: "🪙70,000",
               image: "https://i.pinimg.com/originals/87/e4/52/87e452e8b4274149ab17420c374a4d85.jpg"
             }   
           ]);
